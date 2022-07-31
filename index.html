@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <title>Data Quality Dimensions</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />    
+</head>
+
+<style>
+
+a
+  {
+    color: rgb(6, 51, 253);
+  }
+
+.grid line {
+  stroke: lightblue;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+h2 {
+      color: #000000;
+      text-align:left;  
+      /*font-style: italic;*/
+      font-size: 15px;
+      font-family: "Helvetica";
+  }
+
+aside {
+      width: 20%;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-top: 85px;
+      margin-left: 15px;
+      margin-right: 30px;
+      float: left;
+      font-family: "PT Sans", sans-serif;
+      font-size: 12px;
+      background-color: #ffffff;
+  }
+
+
+  div.tooltip {
+          position: absolute;
+          text-align: left;
+          width: 350px;
+          /*height: 50px;*/
+          border-radius: 5px;
+          padding: 5px;
+          background: lightyellow;
+          border: 0px;
+          border-radius: 4px;
+          pointer-events: none;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+          font-size: 11px;
+          font-family: "Helvetica";
+          transition: 0.3s;
+        }
+
+</style>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<aside>
+  <h2>Data Quality Dimensions, Definitions<br/> and Data Concepts</h2>
+  <p>The Data Quality working group of the Data Management Association in the Netherlands (DAMA NL) carried out an extensive research into definitions of dimensions of data quality. It has collected definitions from various sources and compared these with each other. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704.
+    New in the data ecosystem is that all dimensions are linked to a 'data concept' such as a data file, an attribute, a record and a data value. This simplifies distinguishing between, for example, the completeness of records and the completeness of data values. These data concepts are also provided with standardized definitions.
+    This research has led to a list of 60 dimensions of data quality and 20 data concepts with standardized definitions. From this list, 12 common dimensions have been selected.</p>
+  <p>Hovering the mouse over a coloured cell in the grid shown on the right, will reveal the Data Quality Dimension, its Definition and Data Concept.</p>
+  <p>Light coloured cells represent the general combination of Data Quality Dimensions and Data Concepts. The 12 dark coloured cells represent the
+    combination of Data Quality Dimensions and Data Concepts most commonly used.
+  </p>
+  <p>The number of Data Quality Dimensions used by organisations may vary by organisation and is typically anywhere between 5 and 20.</p>
+  <p>Source: <a rel="DAMA-SOURCE" href="https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf" target="_blank">Dictionary of dimensions of data quality (3DQ)</a></p>
+  <p>Website: <a rel="DAMA-NL" href="https://www.dama-nl.org/data_quality/" target="_blank">DAMA NL Working Group for Data Quality</a></p>
+  <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
+    <br/>
+    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>.</p>
+</aside>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+    // Set the dimensions and margins of the graph:
+    var margin = {top: 100, right: 130, bottom: 10, left: 160},
+      width = 430 - margin.left - margin.right,
+      height = 760 - margin.top - margin.bottom;
+        
+    var svg = d3.select("#my_dataviz")
+    .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" +  margin.left + "," + margin.top + ")");
+                  
+    // Labels of row and columns:
+    var myVars = [
+                  "Ability to represent null values",
+                  "Access security",
+                  "Accessibility",                  
+                  "Accuracy",
+                  "Appropriateness",
+                  "Availability",
+                  "Clarity",
+                  "Coherence",
+                  "Comparability of populations",
+                  "Comparability over time",
+                  "Completeness (1)",
+                  "Completeness (2)",
+                  "Completeness (3)",
+                  "Completeness (4)",
+                  "Completeness (5)",
+                  "Completeness (6)",
+                  "Compliance with laws, regulations, or standards (1)",
+                  "Compliance with laws, regulations, or standards (2)",
+                  "Confidentiality",
+                  "Consistency (1)",
+                  "Consistency (2)",
+                  "Consistency (3)",
+                  "Consistency (4)",
+                  "Consistency (5)",
+                  "Credibility",
+                  "Currency",
+                  "Equivalence",
+                  "Granularity (1)",
+                  "Granularity (2)",
+                  "Integrity",
+                  "Interpretability",
+                  "Latency",
+                  "Linkability",
+                  "Metadata compliance",
+                  "Naturalness",
+                  "Objectivity",
+                  "Obtainability",
+                  "Plausibility",
+                  "Portability (1)",
+                  "Portability (2)",
+                  "Precision (1)",
+                  "Precision (2)",
+                  "Punctuality",
+                  "Reasonability",
+                  "Recoverability",
+                  "Redundancy",
+                  "Referential integrity",
+                  "Relevance",
+                  "Reliability",
+                  "Reproducibility",
+                  "Reputation",
+                  "Retention period",                  
+                  "Timeliness",
+                  "Traceability",
+                  "Uniqueness (1)",
+                  "Uniqueness (2)",
+                  "Validity",
+                  "Value",
+                  "Variety",
+                  "Volatility"
+                ]
+
+    var myGroups = [
+                    "Attribute",
+                    "Data",
+                    "Data file",
+                    "Data pattern",
+                    "Data value",
+                    "Dataset",
+                    "Dataset availability",
+                    "Dataset composition",
+                    "Format",
+                    "Initial Data Value",
+                    "Metadata",
+                    "Object",
+                    "Record"
+                  ]
+    
+    // Build x scales and axis:    
+    var x = d3.scaleBand()
+      
+      .range([ 0, width ])
+      .domain(myGroups)
+      .padding(0.01);
+      
+      svg.append("g")        
+        .call(d3.axisTop(x))
+        .selectAll("text")      
+        .style("font-size",10)
+        .style("text-anchor", "start")
+        .attr("dx", "0.85em")
+        .attr("dy", "0.3em")
+        .attr("transform", "rotate(-60)" )
+             
+    // Build y scales and axis:
+    var y = d3.scaleBand()
+      
+      .range([ 0, height ])
+      .domain(myVars)
+      .padding(0.01);
+
+      svg.append("g")
+        .attr("transform", "translate(0," + 0 + ")")
+        .call(d3.axisLeft(y))
+          
+    // Build color scale:
+    var myColor = d3.scaleLinear()
+      .range(["white", "#4673c0"])
+      .domain([1,100])
+
+// Build gridlines in x axis function
+function make_x_gridlines() {		
+    return d3.axisBottom(x)
+        .ticks(5)
+}
+
+// Build gridlines in y axis function
+function make_y_gridlines() {		
+    return d3.axisLeft(y)
+        .ticks(5)
+}
+
+// Add the x gridlines
+svg.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+      )
+
+// Add the y gridlines
+svg.append("g")			
+      .attr("class", "grid")
+      .call(make_y_gridlines()
+          .tickSize(-width)
+          .tickFormat("")
+      )
+
+
+// Three functions to change the tooltip when user hovers, moves or leaves a cell
+  var mouseover = function(d) {
+    
+    // Capture which array entry for DQ Dimension is used:    
+    let j = myVars.indexOf(d.variable)
+
+    // Capture which array entry for Data Concept is used:
+    let k = myGroups.indexOf(d.group)
+
+    d3.select(this)
+      .style("stroke", "red")
+      .style("stroke-width", 2)
+      .style("opacity", 1)
+      
+      tooltip.transition().duration(200).style("opacity", .9)
+                
+      tooltip.html(
+                    
+                    "<strong>" + "Data Quality Dimension: " + "</strong>" + "<br/>" +
+                        d.variable +
+                    "<br/>" + "<br/>" +
+                    "<strong>" + "Definition: " + "</strong>" + "<br/>"  +
+                        d.definition +
+                    "<br/>" +"<br/>" +
+                    "<strong>" + "Data Concept: " + "</strong>" + "<br/>" +
+                        d.group                              
+                    
+                    )
+      
+                    .style("left", (d3.event.pageX - 9) + "px")
+                    .style("top", (d3.event.pageY - 80) + "px")
+                      
+                    
+                    // Highlighting the DQ Dimension tick label:
+                    d3.selectAll('g.tick').filter(function(d,i){
+                       return d == myVars[j];})
+                    
+                    .select('text')
+                    .style('stroke','red')
+                    .style("stroke-width", 0.4)
+                    
+                    // Highlighting the Data Concept tick label:
+                    d3.selectAll('g.tick').filter(function(d,i){
+                       return d == myGroups[k];})
+                    
+                    .select('text')
+                    .style('stroke','red')
+                    .style("stroke-width", 0.4)
+
+    }   
+  
+  var mousemove = function(d) {
+    
+    tooltip.style('left', (d3.event.pageX+20) + 'px')
+    tooltip.style('top', (d3.event.pageY-70) + 'px')
+
+  }
+  
+  var mouseout = function(d) {
+  
+    d3.select(this)
+    .style("stroke", "none")
+    .style("opacity", 0.8)
+    
+    tooltip.transition().duration(500).style("opacity", 0);
+
+    d3.selectAll('g.tick').select('text').style('stroke','black').style("stroke-width", 0)
+      
+  }
+
+    </script>
+
+    <script id="DQ">
+        [
+            {
+                "variable": "Ability to represent null values",
+                "group": "Format",
+                "value": 75,
+                "definition": "The degree to which a format allows null values in an attribute."
+            },
+            {
+                "variable": "Access security",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The degree to which access to datasets is restricted."
+            },
+            {
+                "variable": "Accessibility",
+                "group": "Data",
+                "value": 75,
+                "definition": "The ease with which data can be consulted or retrieved."
+            },
+            {
+                "variable": "Accuracy",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree of closeness of data values to real values."
+            },
+            {
+                "variable": "Appropriateness",
+                "group": "Format",
+                "value": 75,
+                "definition": "The degree to which the format is suitable for use."
+            },
+            {
+                "variable": "Availability",
+                "group": "Data",
+                "value": 200,
+                "definition": "The degree to which data can be consulted or retrieved by data consumers or a process."
+            },
+            {
+                "variable": "Clarity",
+                "group": "Metadata",
+                "value": 200,
+                "definition": "The ease with which data consumers can understand the metadata."
+            },
+            {
+                "variable": "Coherence",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which datasets can be combined."
+            },
+            {
+                "variable": "Comparability of populations",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values representing two populations have the same definition and are measured in the same way."
+            },
+            {
+                "variable": "Comparability over time",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values over time have the same definition and are measured in the same way."
+            },
+            {
+                "variable": "Completeness (1)",
+                "group": "Attribute",
+                "value": 75,
+                "definition": "The degree to which all required attributes in the dataset are present."
+            },
+            {
+                "variable": "Completeness (2)",
+                "group": "Record",
+                "value": 200,
+                "definition": "The degree to which all required records in the dataset are present."
+            },
+            {
+                "variable": "Completeness (3)",
+                "group": "Data file",
+                "value": 75,
+                "definition": "The degree to which all required data files are present."
+            },
+            {
+                "variable": "Completeness (4)",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which all required data values are present."
+            },
+            {
+                "variable": "Completeness (5)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which all required data values of an attribute are present."
+            },
+            {
+                "variable": "Completeness (6)",
+                "group": "Metadata",
+                "value": 75,
+                "definition": "The degree to which the metadata are fully described."
+            },
+            {
+                "variable": "Compliance with laws, regulations, or standards (1)",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data is in accordance with laws, regulations, or standards."
+            },
+            {
+                "variable": "Compliance with laws, regulations, or standards (2)",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which the composition of datasets is in accordance with laws, regulations, or standards."
+            },
+            {
+                "variable": "Confidentiality",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which disclosure of data should be restricted to authorized data consumers."
+            },
+            {
+                "variable": "Consistency (1)",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which data values of two sets of attributes 1) within a record, 2)  within a data file, 3) between data files, 4) within a record at different points in time, comply with a rule."
+            },
+            {
+                "variable": "Consistency (2)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the data values of a set of attributes of a dataset at different points in time comply with a rule."
+            },
+            {
+                "variable": "Consistency (3)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values of two sets of attributes between datasets comply with a rule."
+            },
+            {
+                "variable": "Consistency (4)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values of two sets of attributes between records comply with a rule."
+            },
+            {
+                "variable": "Consistency (5)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values of two sets of attributes within a record comply with a rule."
+            },
+            {
+                "variable": "Credibility",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values are regarded as true and believable by data consumers."
+            },
+            {
+                "variable": "Currency",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which data values are up to date."
+            },
+            {
+                "variable": "Equivalence",
+                "group": "Attribute",
+                "value": 75,
+                "definition": "The degree to which attributes stored in multiple datasets are conceptually equal."
+            },
+            {
+                "variable": "Granularity (1)",
+                "group": "Attribute",
+                "value": 75,
+                "definition": "The degree to which a single characteristic is subdivided in attributes."
+            },
+            {
+                "variable": "Granularity (2)",
+                "group": "Record",
+                "value": 75,
+                "definition": "The degree to which objects are aggregated to records."
+            },
+            {
+                "variable": "Integrity",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree of absence of data value loss or corruption."
+            },
+            {
+                "variable": "Interpretability",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data are in an appropriate language and units of measure."
+            },
+            {
+                "variable": "Latency",
+                "group": "Data",
+                "value": 75,
+                "definition": "The period of time between the point when the data is created and the point when it is available for use."
+            },
+            {
+                "variable": "Linkability",
+                "group": "Data file",
+                "value": 75,
+                "definition": "The degree to which records of one data file can be correctly coupled with records of another data file."
+            },
+            {
+                "variable": "Metadata compliance",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the data values are in accordance with their definition, format specification and value domain."
+            },
+            {
+                "variable": "Naturalness",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which the composition of datasets is aligned with the real-world objects that they represent."
+            },
+            {
+                "variable": "Objectivity",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the data values are created in an unbiased manner."
+            },
+            {
+                "variable": "Obtainability",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which the data can be acquired."
+            },
+            {
+                "variable": "Plausibility",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values match knowledge of the real world."
+            },
+            {
+                "variable": "Portability (1)",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data can be installed, replaced or moved from one system to another while preserving the existing quality."
+            },
+            {
+                "variable": "Portability (2)",
+                "group": "Format",
+                "value": 75,
+                "definition": "The degree to which a format can be applied in a wide range of situations."
+            },
+            {
+                "variable": "Precision (1)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree of accuracy with which a data value is recorded or classified."
+            },
+            {
+                "variable": "Precision (2)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the error in data values spreads around zero (in statistics)."
+            },
+            {
+                "variable": "Punctuality",
+                "group": "Dataset availability",
+                "value": 200,
+                "definition": "The degree to which the period between the actual and target point of time of availability of a dataset is appropriate."
+            },
+            {
+                "variable": "Reasonability",
+                "group": "Data pattern",
+                "value": 75,
+                "definition": "The degree to which a data pattern meets expectations."
+            },
+            {
+                "variable": "Recoverability",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The degree to which datasets are preserved in the event of incident."
+            },
+            {
+                "variable": "Redundancy",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which logically identical data are stored more than once."
+            },
+            {
+                "variable": "Referential integrity",
+                "group": "Data file",
+                "value": 75,
+                "definition": "The degree to which data values of the primary key of one data file and data values of the foreign key of another data file are equal."
+            },
+            {
+                "variable": "Relevance",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which the composition of datasets meets the needs of the data consumer."
+            },
+            {
+                "variable": "Reliability",
+                "group": "Initial Data Value",
+                "value": 75,
+                "definition": "The closeness of the initial data value to the subsequent data value."
+            },
+            {
+                "variable": "Reproducibility",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The degree to which a dataset can be recreated with the same data values."
+            },
+            {
+                "variable": "Reputation",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data are trusted or highly regarded in terms of their source or content."
+            },
+            {
+                "variable": "Retention period",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The period that datasets are available until they can or must be deleted."
+            },
+            {
+                "variable": "Timeliness",
+                "group": "Dataset availability",
+                "value": 200,
+                "definition": "The degree to which the period between the time of creation of the real value and the time that the dataset is available is appropriate."
+            },
+            {
+                "variable": "Traceability",
+                "group": "Data",
+                "value": 200,
+                "definition": "The degree to which data lineage is available."
+            },
+            {
+                "variable": "Uniqueness (1)",
+                "group": "Object",
+                "value": 75,
+                "definition": "The degree to which objects (of the real world) occur only once as a record in a data file."
+            },
+            {
+                "variable": "Uniqueness (2)",
+                "group": "Record",
+                "value": 200,
+                "definition": "The degree to which records occur only once in a data file."
+            },
+            {
+                "variable": "Validity",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which data values comply with rules."
+            },
+            {
+                "variable": "Value",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data provide advantages from their use."
+            },
+            {
+                "variable": "Variety",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data are available from different data sources."
+            },
+            {
+                "variable": "Volatility",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values change over time."
+            }        
+        
+        ]
+       
+</script>
+
+<script>
+
+// Read the data from the DQ element:
+
+var DQ = document.getElementById('DQ').innerHTML;
+graph = JSON.parse(DQ);
+
+      svg.selectAll()
+          .data(graph, function(d) {return d.group+':'+d.variable;})
+          .enter()
+          .append("rect")
+          .attr("x", function(d) { return x(d.group) })
+          .attr("y", function(d) { return y(d.variable) })
+          .attr("width", x.bandwidth() )
+          .attr("height", y.bandwidth() )
+          .style("fill", function(d) { return myColor(d.value)} )
+          .style("stroke-width", 4)
+          .style("stroke", "none")
+          .style("opacity", 0.8)
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemove)
+          .on("mouseout", mouseout)
+    
+// Create legend
+
+svg.append("rect")
+    .attr("x",175)
+    .attr("y",130)
+    .attr("width", "11px")
+    .attr("height", "11px")
+    .style("fill", myColor(75))
+
+svg.append("rect")
+    .attr("x",175)
+    .attr("y",150)
+    .attr("width", "11px")
+    .attr("height", "11px")
+    .style("fill", myColor(200))
+
+svg.append("text")
+    .attr("x", 190)
+    .attr("y", 136)
+    .text("General")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .attr("alignment-baseline","middle")
+
+svg.append("text")
+    .attr("x", 190)
+    .attr("y", 157)
+    .text("Most common")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .attr("alignment-baseline","middle")
+            
+var tooltip = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+
+</script>
+
+</html>
