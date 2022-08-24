@@ -1,0 +1,64 @@
+a
+  {
+    color: rgb(6, 51, 253);
+  }
+
+.grid line {
+  stroke: lightblue;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+h2 {
+      color: #000000;
+      text-align:left;  
+      /*font-style: italic;*/
+      font-size: 15px;
+      font-family: "Helvetica";
+  }
+
+h3 {
+    color: #000000;
+    text-align:left;  
+    /*font-style: italic;*/
+    font-size: 13px;
+    font-family: "Helvetica";
+}
+
+aside {
+      width: 300px; /*was set to 20%*/
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-top: 85px;
+      margin-left: 15px;
+      margin-right: 30px;
+      float: left;
+      font-family: "PT Sans", sans-serif;
+      font-size: 12px;
+      background-color: #ffffff;
+      text-align: justify;
+  }
+
+div.tooltip {
+      position: absolute;
+      text-align: left;
+      width: 350px;
+      /*height: 50px;*/
+      border-radius: 5px;
+      padding: 5px;
+      background: lightyellow;
+      border: 0px;
+      border-radius: 4px;
+      pointer-events: none;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      font-size: 11px;
+      font-family: "Helvetica";
+      transition: 0.3s;
+   }
+
+  
+ul {
+    list-style-position:outside;
+    list-style-type:disc;
+    margin-left: -25px;    
+   }
