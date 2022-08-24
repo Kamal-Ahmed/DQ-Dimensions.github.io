@@ -1,0 +1,363 @@
+[
+            {
+                "variable": "Ability to represent null values",
+                "group": "Format",
+                "value": 75,
+                "definition": "The degree to which a format allows null values in an attribute."
+            },
+            {
+                "variable": "Access security",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The degree to which access to datasets is restricted."
+            },
+            {
+                "variable": "Accessibility",
+                "group": "Data",
+                "value": 75,
+                "definition": "The ease with which data can be consulted or retrieved."
+            },
+            {
+                "variable": "Accuracy",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree of closeness of data values to real values."
+            },
+            {
+                "variable": "Appropriateness",
+                "group": "Format",
+                "value": 75,
+                "definition": "The degree to which the format is suitable for use."
+            },
+            {
+                "variable": "Availability",
+                "group": "Data",
+                "value": 200,
+                "definition": "The degree to which data can be consulted or retrieved by data consumers or a process."
+            },
+            {
+                "variable": "Clarity",
+                "group": "Metadata",
+                "value": 200,
+                "definition": "The ease with which data consumers can understand the metadata."
+            },
+            {
+                "variable": "Coherence",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which datasets can be combined."
+            },
+            {
+                "variable": "Comparability of populations",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values representing two populations have the same definition and are measured in the same way."
+            },
+            {
+                "variable": "Comparability over time",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values over time have the same definition and are measured in the same way."
+            },
+            {
+                "variable": "Completeness (1)",
+                "group": "Attribute",
+                "value": 75,
+                "definition": "The degree to which all required attributes in the dataset are present."
+            },
+            {
+                "variable": "Completeness (2)",
+                "group": "Record",
+                "value": 200,
+                "definition": "The degree to which all required records in the dataset are present."
+            },
+            {
+                "variable": "Completeness (3)",
+                "group": "Data file",
+                "value": 75,
+                "definition": "The degree to which all required data files are present."
+            },
+            {
+                "variable": "Completeness (4)",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which all required data values are present."
+            },
+            {
+                "variable": "Completeness (5)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which all required data values of an attribute are present."
+            },
+            {
+                "variable": "Completeness (6)",
+                "group": "Metadata",
+                "value": 75,
+                "definition": "The degree to which the metadata are fully described."
+            },
+            {
+                "variable": "Compliance with laws, regulations, or standards (1)",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data is in accordance with laws, regulations, or standards."
+            },
+            {
+                "variable": "Compliance with laws, regulations, or standards (2)",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which the composition of datasets is in accordance with laws, regulations, or standards."
+            },
+            {
+                "variable": "Confidentiality",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which disclosure of data should be restricted to authorized data consumers."
+            },
+            {
+                "variable": "Consistency (1)",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which data values of two sets of attributes 1) within a record, 2)  within a data file, 3) between data files, 4) within a record at different points in time, comply with a rule."
+            },
+            {
+                "variable": "Consistency (2)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the data values of a set of attributes of a dataset at different points in time comply with a rule."
+            },
+            {
+                "variable": "Consistency (3)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values of two sets of attributes between datasets comply with a rule."
+            },
+            {
+                "variable": "Consistency (4)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values of two sets of attributes between records comply with a rule."
+            },
+            {
+                "variable": "Consistency (5)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values of two sets of attributes within a record comply with a rule."
+            },
+            {
+                "variable": "Credibility",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values are regarded as true and believable by data consumers."
+            },
+            {
+                "variable": "Currency",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which data values are up to date."
+            },
+            {
+                "variable": "Equivalence",
+                "group": "Attribute",
+                "value": 75,
+                "definition": "The degree to which attributes stored in multiple datasets are conceptually equal."
+            },
+            {
+                "variable": "Granularity (1)",
+                "group": "Attribute",
+                "value": 75,
+                "definition": "The degree to which a single characteristic is subdivided in attributes."
+            },
+            {
+                "variable": "Granularity (2)",
+                "group": "Record",
+                "value": 75,
+                "definition": "The degree to which objects are aggregated to records."
+            },
+            {
+                "variable": "Integrity",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree of absence of data value loss or corruption."
+            },
+            {
+                "variable": "Interpretability",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data are in an appropriate language and units of measure."
+            },
+            {
+                "variable": "Latency",
+                "group": "Data",
+                "value": 75,
+                "definition": "The period of time between the point when the data is created and the point when it is available for use."
+            },
+            {
+                "variable": "Linkability",
+                "group": "Data file",
+                "value": 75,
+                "definition": "The degree to which records of one data file can be correctly coupled with records of another data file."
+            },
+            {
+                "variable": "Metadata compliance",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the data values are in accordance with their definition, format specification and value domain."
+            },
+            {
+                "variable": "Naturalness",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which the composition of datasets is aligned with the real-world objects that they represent."
+            },
+            {
+                "variable": "Objectivity",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the data values are created in an unbiased manner."
+            },
+            {
+                "variable": "Obtainability",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which the data can be acquired."
+            },
+            {
+                "variable": "Plausibility",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values match knowledge of the real world."
+            },
+            {
+                "variable": "Portability (1)",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data can be installed, replaced or moved from one system to another while preserving the existing quality."
+            },
+            {
+                "variable": "Portability (2)",
+                "group": "Format",
+                "value": 75,
+                "definition": "The degree to which a format can be applied in a wide range of situations."
+            },
+            {
+                "variable": "Precision (1)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree of accuracy with which a data value is recorded or classified."
+            },
+            {
+                "variable": "Precision (2)",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which the error in data values spreads around zero (in statistics)."
+            },
+            {
+                "variable": "Punctuality",
+                "group": "Dataset availability",
+                "value": 200,
+                "definition": "The degree to which the period between the actual and target point of time of availability of a dataset is appropriate."
+            },
+            {
+                "variable": "Reasonability",
+                "group": "Data pattern",
+                "value": 75,
+                "definition": "The degree to which a data pattern meets expectations."
+            },
+            {
+                "variable": "Recoverability",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The degree to which datasets are preserved in the event of incident."
+            },
+            {
+                "variable": "Redundancy",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which logically identical data are stored more than once."
+            },
+            {
+                "variable": "Referential integrity",
+                "group": "Data file",
+                "value": 75,
+                "definition": "The degree to which data values of the primary key of one data file and data values of the foreign key of another data file are equal."
+            },
+            {
+                "variable": "Relevance",
+                "group": "Dataset composition",
+                "value": 75,
+                "definition": "The degree to which the composition of datasets meets the needs of the data consumer."
+            },
+            {
+                "variable": "Reliability",
+                "group": "Initial Data Value",
+                "value": 75,
+                "definition": "The closeness of the initial data value to the subsequent data value."
+            },
+            {
+                "variable": "Reproducibility",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The degree to which a dataset can be recreated with the same data values."
+            },
+            {
+                "variable": "Reputation",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data are trusted or highly regarded in terms of their source or content."
+            },
+            {
+                "variable": "Retention period",
+                "group": "Dataset",
+                "value": 75,
+                "definition": "The period that datasets are available until they can or must be deleted."
+            },
+            {
+                "variable": "Timeliness",
+                "group": "Dataset availability",
+                "value": 200,
+                "definition": "The degree to which the period between the time of creation of the real value and the time that the dataset is available is appropriate."
+            },
+            {
+                "variable": "Traceability",
+                "group": "Data",
+                "value": 200,
+                "definition": "The degree to which data lineage is available."
+            },
+            {
+                "variable": "Uniqueness (1)",
+                "group": "Object",
+                "value": 75,
+                "definition": "The degree to which objects (of the real world) occur only once as a record in a data file."
+            },
+            {
+                "variable": "Uniqueness (2)",
+                "group": "Record",
+                "value": 200,
+                "definition": "The degree to which records occur only once in a data file."
+            },
+            {
+                "variable": "Validity",
+                "group": "Data value",
+                "value": 200,
+                "definition": "The degree to which data values comply with rules."
+            },
+            {
+                "variable": "Value",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data provide advantages from their use."
+            },
+            {
+                "variable": "Variety",
+                "group": "Data",
+                "value": 75,
+                "definition": "The degree to which data are available from different data sources."
+            },
+            {
+                "variable": "Volatility",
+                "group": "Data value",
+                "value": 75,
+                "definition": "The degree to which data values change over time."
+            }        
+        
+        ]
