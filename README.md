@@ -10,3 +10,8 @@ Light coloured cells represent the general combination of Data Quality Dimension
 
 The number of Data Quality Dimensions used by organisations may vary by organisation and is typically anywhere between 5 and 20.
 
+### Image of interactive tool
+
+<p align="center">
+  <img src="DQ_Dimensions_Definitions_Interactive_Vis.png" width="350">  
+</p>
