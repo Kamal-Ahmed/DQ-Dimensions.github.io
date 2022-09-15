@@ -9,3 +9,4 @@ Hovering the mouse over a coloured cell in the grid shown on the right, will rev
 Light coloured cells represent the general combination of Data Quality Dimensions and Data Concepts. The 12 dark coloured cells represent the combination of Data Quality Dimensions and Data Concepts most commonly used.
 
 The number of Data Quality Dimensions used by organisations may vary by organisation and is typically anywhere between 5 and 20.
+
