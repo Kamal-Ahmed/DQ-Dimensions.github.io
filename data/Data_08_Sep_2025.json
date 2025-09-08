@@ -449,7 +449,7 @@
   },
   {
     "variable": "Validity",
-    "group": "Datavalue",
+    "group": "Data value",
     "value": 200,
     "definition": "The degree to which data values comply with rules.",
     "definition_group": "The value of a data item.",
@@ -473,10 +473,11 @@
   },
   {
     "variable": "Volatility",
-    "group": "Datavalue",
+    "group": "Data value",
     "value": 75,
     "definition": "The degree to which data values change over time.",
     "definition_group": "The value of a data item.",
     "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/volatility"
   }
+
 ]
