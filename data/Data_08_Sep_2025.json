@@ -1,0 +1,482 @@
+[
+  {
+    "variable": "Ability to represent null values",
+    "group": "Format",
+    "value": 75,
+    "definition": "The degree to which a format allows null values in an attribute.",
+    "definition_group": "A combination of datatype, unit of measure and character set.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/ability_to_represent_null_values"
+  },
+  {
+    "variable": "Access security",
+    "group": "Dataset",
+    "value": 75,
+    "definition": "The degree to which access to datasets is restricted.",
+    "definition_group": "Any organized collection of data.",
+    "link_to_wiki": "-"
+  },
+  {
+    "variable": "Accessibility",
+    "group": "Data",
+    "value": 75,
+    "definition": "The ease with which data can be consulted or retrieved.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/accessibility"
+  },
+  {
+    "variable": "Accuracy",
+    "group": "Data value",
+    "value": 200,
+    "definition": "The degree of closeness of data values to real values.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/accuracy"
+  },
+  {
+    "variable": "Appropriateness",
+    "group": "Format",
+    "value": 75,
+    "definition": "The degree to which the format is suitable for use.",
+    "definition_group": "A combination of datatype, unit of measure and character set.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/appropriateness"
+  },
+  {
+    "variable": "Availability",
+    "group": "Data",
+    "value": 200,
+    "definition": "The degree to which data can be consulted or retrieved by data consumers or a process.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/availability"
+  },
+  {
+    "variable": "Clarity",
+    "group": "Metadata",
+    "value": 200,
+    "definition": "The ease with which data consumers can understand the metadata.",
+    "definition_group": "Data that defines and describes other data.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/clarity"
+  },
+  {
+    "variable": "Coherence",
+    "group": "Dataset composition",
+    "value": 75,
+    "definition": "The degree to which datasets can be combined.",
+    "definition_group": "The way in which a dataset is made up.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/coherence"
+  },
+  {
+    "variable": "Comparability of populations",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values representing two populations have the same definition and are measured in the same way.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/comparability_over_populations"
+  },
+  {
+    "variable": "Comparability over time",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values over time have the same definition and are measured in the same way.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/comparability_over_populations"
+  },
+  {
+    "variable": "Completeness (1)",
+    "group": "Attribute",
+    "value": 75,
+    "definition": "The degree to which all required attributes in the dataset are present.",
+    "definition_group": "A characteristic of an entity type about which the organisation wishes to hold information.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/completeness"
+  },
+  {
+    "variable": "Completeness (2)",
+    "group": "Record",
+    "value": 200,
+    "definition": "The degree to which all required records in the dataset are present.",
+    "definition_group": "A logically related set of data values that represent a (real-world) object.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/completeness"
+  },
+  {
+    "variable": "Completeness (3)",
+    "group": "Data file",
+    "value": 75,
+    "definition": "The degree to which all required data files are present.",
+    "definition_group": "Data stored on a computer as one unit with one name.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/completeness"
+  },
+  {
+    "variable": "Completeness (4)",
+    "group": "Data value",
+    "value": 200,
+    "definition": "The degree to which all required data values are present.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/completeness"
+  },
+  {
+    "variable": "Completeness (5)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which all required data values of an attribute are present.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/completeness"
+  },
+  {
+    "variable": "Completeness (6)",
+    "group": "Metadata",
+    "value": 75,
+    "definition": "The degree to which the metadata are fully described.",
+    "definition_group": "Data that defines and describes other data.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/completeness"
+  },
+  {
+    "variable": "Compliance with laws, regulations, or standards (1)",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which data is in accordance with laws, regulations, or standards.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "-"
+  },
+  {
+    "variable": "Compliance with laws, regulations, or standards (2)",
+    "group": "Dataset composition",
+    "value": 75,
+    "definition": "The degree to which the composition of datasets is in accordance with laws, regulations, or standards.",
+    "definition_group": "The way in which a dataset is made up.",
+    "link_to_wiki": "-"
+  },
+  {
+    "variable": "Confidentiality",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which disclosure of data should be restricted to authorized data consumers.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/confidentiality"
+  },
+  {
+    "variable": "Consistency (1)",
+    "group": "Data value",
+    "value": 200,
+    "definition": "The degree to which data values of two sets of attributes 1) within a record, 2)  within a data file, 3) between data files, 4) within a record at different points in time, comply with a rule.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/consistency"
+  },
+  {
+    "variable": "Consistency (2)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which the data values of a set of attributes of a dataset at different points in time comply with a rule.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/consistency"
+  },
+  {
+    "variable": "Consistency (3)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values of two sets of attributes between datasets comply with a rule.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/consistency"
+  },
+  {
+    "variable": "Consistency (4)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values of two sets of attributes between records comply with a rule.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/consistency"
+  },
+  {
+    "variable": "Consistency (5)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values of two sets of attributes within a record comply with a rule.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/consistency"
+  },
+  {
+    "variable": "Credibility",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values are regarded as true and believable by data consumers.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/creditility"
+  },
+  {
+    "variable": "Currency",
+    "group": "Data value",
+    "value": 200,
+    "definition": "The degree to which data values are up to date.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/currency"
+  },
+  {
+    "variable": "Equivalence",
+    "group": "Attribute",
+    "value": 75,
+    "definition": "The degree to which attributes stored in multiple datasets are conceptually equal.",
+    "definition_group": "A characteristic of an entity type about which the organisation wishes to hold information.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/equivalance"
+  },
+  {
+    "variable": "Granularity (1)",
+    "group": "Attribute",
+    "value": 75,
+    "definition": "The degree to which a single characteristic is subdivided in attributes.",
+    "definition_group": "A characteristic of an entity type about which the organisation wishes to hold information.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/granularity"
+  },
+  {
+    "variable": "Granularity (2)",
+    "group": "Record",
+    "value": 75,
+    "definition": "The degree to which objects are aggregated to records.",
+    "definition_group": "A logically related set of data values that represent a (real-world) object.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/granularity"
+  },
+  {
+    "variable": "Integrity",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree of absence of data value loss or corruption.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/integrity"
+  },
+  {
+    "variable": "Interpretability",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which data are in an appropriate language and units of measure.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "-"
+  },
+  {
+    "variable": "Latency",
+    "group": "Data",
+    "value": 75,
+    "definition": "The period of time between the point when the data is created and the point when it is available for use.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/latency"
+  },
+  {
+    "variable": "Linkability",
+    "group": "Data file",
+    "value": 75,
+    "definition": "The degree to which records of one data file can be correctly coupled with records of another data file.",
+    "definition_group": "Data stored on a computer as one unit with one name.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/linkability"
+  },
+  {
+    "variable": "Metadata compliance",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which the data values are in accordance with their definition, format specification and value domain.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/metadata_compliance"
+  },
+  {
+    "variable": "Naturalness",
+    "group": "Dataset composition",
+    "value": 75,
+    "definition": "The degree to which the composition of datasets is aligned with the real-world objects that they represent.",
+    "definition_group": "The way in which a dataset is made up.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/naturalness"
+  },
+  {
+    "variable": "Objectivity",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which the data values are created in an unbiased manner.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/objectivity"
+  },
+  {
+    "variable": "Obtainability",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which the data can be acquired.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/obtainability"
+  },
+  {
+    "variable": "Plausibility",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which data values match knowledge of the real world.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/plausibility"
+  },
+  {
+    "variable": "Portability (1)",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which data can be installed, replaced or moved from one system to another while preserving the existing quality.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/portability"
+  },
+  {
+    "variable": "Portability (2)",
+    "group": "Format",
+    "value": 75,
+    "definition": "The degree to which a format can be applied in a wide range of situations.",
+    "definition_group": "A combination of datatype, unit of measure and character set.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/portability"
+  },
+  {
+    "variable": "Precision (1)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree of accuracy with which a data value is recorded or classified.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/precision"
+  },
+  {
+    "variable": "Precision (2)",
+    "group": "Data value",
+    "value": 75,
+    "definition": "The degree to which the error in data values spreads around zero (in statistics).",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/precision"
+  },
+  {
+    "variable": "Punctuality",
+    "group": "Dataset availability",
+    "value": 200,
+    "definition": "The degree to which the period between the actual and target point of time of availability of a dataset is appropriate.",
+    "definition_group": "The degree to which a dataset can be consulted or retrieved by data consumers or processes.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/punctuality"
+  },
+  {
+    "variable": "Reasonability",
+    "group": "Data pattern",
+    "value": 75,
+    "definition": "The degree to which a data pattern meets expectations.",
+    "definition_group": "A series of data that repeats in a recognizable way.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/reasonability"
+  },
+  {
+    "variable": "Recoverability",
+    "group": "Dataset",
+    "value": 75,
+    "definition": "The degree to which datasets are preserved in the event of incident.",
+    "definition_group": "Any organized collection of data.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/recoverabiliity"
+  },
+  {
+    "variable": "Redundancy",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which logically identical data are stored more than once.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/redundancy"
+  },
+  {
+    "variable": "Referential integrity",
+    "group": "Data file",
+    "value": 75,
+    "definition": "The degree to which data values of the primary key of one data file and data values of the foreign key of another data file are equal.",
+    "definition_group": "Data stored on a computer as one unit with one name.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/referential_integrity"
+  },
+  {
+    "variable": "Relevance",
+    "group": "Dataset composition",
+    "value": 75,
+    "definition": "The degree to which the composition of datasets meets the needs of the data consumer.",
+    "definition_group": "The way in which a dataset is made up.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/relevance"
+  },
+  {
+    "variable": "Reliability",
+    "group": "Initial Data Value",
+    "value": 75,
+    "definition": "The closeness of the initial data value to the subsequent data value.",
+    "definition_group": "A provisional data value that will be updated by a more accurate value.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/reliability"
+  },
+  {
+    "variable": "Reproducibility",
+    "group": "Dataset",
+    "value": 75,
+    "definition": "The degree to which a dataset can be recreated with the same data values.",
+    "definition_group": "Any organized collection of data.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/reproducibility"
+  },
+  {
+    "variable": "Reputation",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which data are trusted or highly regarded in terms of their source or content.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/reputation"
+  },
+  {
+    "variable": "Retention period",
+    "group": "Dataset",
+    "value": 75,
+    "definition": "The period that datasets are available until they can or must be deleted.",
+    "definition_group": "Any organized collection of data.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/retention_periode"
+  },
+  {
+    "variable": "Timeliness",
+    "group": "Dataset availability",
+    "value": 200,
+    "definition": "The degree to which the period between the time of creation of the real value and the time that the dataset is available is appropriate.",
+    "definition_group": "The degree to which a dataset can be consulted or retrieved by data consumers or processes.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/timeliness"
+  },
+  {
+    "variable": "Traceability",
+    "group": "Data",
+    "value": 200,
+    "definition": "The degree to which data lineage is available.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/traceability"
+  },
+  {
+    "variable": "Uniqueness (1)",
+    "group": "Object",
+    "value": 75,
+    "definition": "The degree to which objects (of the real world) occur only once as a record in a data file.",
+    "definition_group": "Anything perceivable or conceivable.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/uniqueness"
+  },
+  {
+    "variable": "Uniqueness (2)",
+    "group": "Record",
+    "value": 200,
+    "definition": "The degree to which records occur only once in a data file.",
+    "definition_group": "A logically related set of data values that represent a (real-world) object.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/uniqueness"
+  },
+  {
+    "variable": "Validity",
+    "group": "Datavalue",
+    "value": 200,
+    "definition": "The degree to which data values comply with rules.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/validity"
+  },
+  {
+    "variable": "Valuability",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which data provide advantages from their use.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/valuability"
+  },
+  {
+    "variable": "Variety",
+    "group": "Data",
+    "value": 75,
+    "definition": "The degree to which data are available from different data sources.",
+    "definition_group": "A representation of facts, concepts, or instructions in a formalized manner, suitable for communication, interpretation, or processing by humans or by automatic means. (ISO2382-4).",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/variety"
+  },
+  {
+    "variable": "Volatility",
+    "group": "Datavalue",
+    "value": 75,
+    "definition": "The degree to which data values change over time.",
+    "definition_group": "The value of a data item.",
+    "link_to_wiki": "https://datamanagement.wiki/data_quality_dimension/volatility"
+  }
+]
