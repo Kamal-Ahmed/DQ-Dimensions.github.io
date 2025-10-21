@@ -4,7 +4,7 @@
 <head>
     <title>Data Quality Dimensions</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1" />-->
     <meta name="description" content="" />    
 </head>
 
@@ -12,47 +12,30 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection"/>
 </head>
 
+
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
-
-<aside>
-  <h3>Data Quality Dimensions, Definitions and Data Concepts</h3>
-  <p>In 2020, the Data Quality working group of the Data Management Association in the Netherlands (DAMA NL), carried out an extensive research into definitions of dimensions of data quality. It collected definitions from various sources and compared these with each other. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704.</p>
-  <p>In the data ecosystem, all dimensions were linked to a 'data concept' such as a data file, an attribute, a record or a data value. This simplified distinguishing between, for example, the completeness of records and the completeness of data values. These data concepts were also provided with standardized definitions.
-    This research led to a list of 60 dimensions of data quality and 20 data concepts with standardized definitions. From this list, 12 common dimensions were selected.</p>
-  <p>Hovering the mouse over a coloured cell in the grid shown on the right, will reveal the Data Quality Dimension, its Definition and Data Concept.</p>
-  <p>Light coloured cells represent the general combination of Data Quality Dimensions and Data Concepts. The 12 dark coloured cells represent the
-    combination of Data Quality Dimensions and Data Concepts most commonly used.
-  </p>
-  <p>The number of Data Quality Dimensions used by organisations may vary by organisation and is typically anywhere between 5 and 20.</p>
-  <h3>Sources</h3>  
-    <ul>
-        <li> <a rel="DAMA-NL" href="https://dama-nl.org/werkgroepen/werkgroep-datakwaliteit/" target="_blank">Website DAMA NL Working Group for Data Quality</a></li>
-        <li> <a rel="DAMA-SOURCE" href="https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf" target="_blank">Dictionary of dimensions of data quality (3DQ)</a></li>        
-    </ul>
-    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
-      <br/>
-      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>.</p>
-</aside>
 
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
 
 <script>
 
-    // Set the dimensions and margins of the graph:
-    var margin = {top: 100, right: 130, bottom: 10, left: 160},
-      width = 430.9 - margin.left - margin.right,
-      height = 760 - margin.top - margin.bottom;
+    // Set the dimensions and margins of the graph. Height was: 740.9
+    var margin = {top: 320, right: 0, bottom: 10, left: 115},
+      height = 740.9,
+      width = 1400;
         
     var svg = d3.select("#my_dataviz")
     .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", width) // + margin.left + margin.right
+      .attr("height", height ) // + margin.top + margin.bottom
+
     .append("g")
       .attr("transform",
             "translate(" +  margin.left + "," + margin.top + ")");
-                  
+           
+
     // Labels of row and columns:
     var myVars = [
                   "Ability to represent null values",
@@ -112,7 +95,7 @@
                   "Uniqueness (1)",
                   "Uniqueness (2)",
                   "Validity",
-                  "Value",
+                  "Valuability",
                   "Variety",
                   "Volatility"
                 ]
@@ -133,37 +116,114 @@
                     "Record"
                   ]
     
-    // Build x scales and axis:    
-    var x = d3.scaleBand()
-      
-      .range([ 0, width ])
-      .domain(myGroups)
-      .padding(0.01);
-      
-      svg.append("g")        
-        .call(d3.axisTop(x))
-        .selectAll("text")      
-        .style("font-size",10)
-        .style("text-anchor", "start")
-        .attr("dx", "0.85em")
-        .attr("dy", "0.3em")
-        .attr("transform", "rotate(-60)" )
-             
-    // Build y scales and axis:
-    var y = d3.scaleBand()
-      
-      .range([ 0, height ])
-      .domain(myVars)
-      .padding(0.01);
 
-      svg.append("g")
-        .attr("transform", "translate(0," + 0 + ")")
-        .call(d3.axisLeft(y))
+    var ISO_Layer_Two = [
+
+                    "Accessibility",
+"Usefulness",
+"Understandability",
+"Compliance",
+"Compliance",
+"Confidentiality",
+"Precision",
+"Precision",
+"Understandability",
+"Traceability",
+"Usefulness",
+"Precision",
+"Precision",
+"Precision",
+"Usefulness",
+"Traceability",
+"Usefulness",
+"Usefulness",
+"Usefulness",
+"Completeness",
+"Accuracy",
+"Consistency",
+"Consistency",
+"Consistency",
+"Completeness",
+"Completeness",
+"Completeness",
+"Completeness",
+"Completeness",
+"Completeness",
+"Consistency",
+"Consistency",
+"Consistency",
+"Consistency",
+"Consistency",
+"Credibility",
+"Currentness",
+"Credibility",
+"Currentness",
+"Credibility",
+"Currentness",
+"Consistency",
+"Credibility",
+"Consistency",
+"Credibility",
+"Currentness",
+"Currentness",
+"Credibility",
+"Completeness",
+"Currentness",
+"Availability",
+"Availability",
+"Semantics",
+"Availability",
+"Portability",
+"Portability",
+"Recoverability",
+"No matches",
+"No matches",
+"No matches"     
+
+    ]
+    
+    myVars = d3.permute(myVars,[
+    2,4,6,16,17,18,27,28,30,33,34,35,40,41,47,53,54,55,57,
+    0,3,7,8,9,10,11,12,13,14,15,19,20,21,22,23,24,25,29,31,37,42,45,48,49,50,51,52,56,58,59,
+    1,5,32,36,38,39,44,
+    26,43,46])
+    
+    // Build x scales and axis:    
+    var x = d3.scaleBand() 
+              .range([ 0, width - 150]) //width
+              .domain(myVars) //myGroups              
+              .padding(0.01);
+      
+    var xAxis = svg.append("g")
+                   .attr("class", "x axis")      
+                   .call(d3.axisTop(x).tickSize(0))
+                   .selectAll("text")                    
+                   .style("font-size",10)
+                   .style("text-anchor", "start")
+                   .attr("dx", "0.75em")
+                   .attr("dy", "0.08em")
+                   .attr("transform", "rotate(-60)" )
+                   
+    
+    // Build y scales and axis:
+    var y = d3.scaleBand()      
+              .range([ 0, height - 560]) //height
+              .domain(myGroups) //myVars
+              .padding(0.1);
+
+    var yAxis = svg.append("g")
+                   .attr("class", "y axis")
+                   .attr("transform", "translate(0," + 6 + ")")
+                   .call(d3.axisLeft(y).tickSize(0))
+                   .selectAll("text")                                          
+                   .style("font-size",10)
+                   .select(".domain").remove()
+                                 
           
     // Build color scale:
-    var myColor = d3.scaleLinear()
-      .range(["white", "#4673c0"])
-      .domain([1,100])
+    var myColor = d3.scaleLinear().range(["#acd0f0", "#1678b4"]).domain([1,100])
+    //original: #4673c0
+    //#D9534F
 
 // Build gridlines in x axis function
 function make_x_gridlines() {		
@@ -180,22 +240,132 @@ function make_y_gridlines() {
 // Add the x gridlines
 svg.append("g")			
       .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + width + ")")      
       .call(make_x_gridlines()
-          .tickSize(-height)
+          .tickSize(0) //-width
           .tickFormat("")
+          
       )
 
 // Add the y gridlines
 svg.append("g")			
       .attr("class", "grid")
+      .attr("transform", "translate(0," + 0 + ")")
       .call(make_y_gridlines()
-          .tickSize(-width)
+          .tickSize(0) //-height-820          
           .tickFormat("")
       )
 
+var y_grid_lines = [
+
+14,27,41,55,68,82,96,109,123,137,151,165,179
+
+]
+
+for (var i=0;i < y_grid_lines.length; i+=1) {
+        svg.append('line')
+        .attr('x1', 1)
+        .attr('y1', y_grid_lines[i])
+        .attr('x2', 1250)
+        .attr('y2', y_grid_lines[i])
+        .style('stroke-width', 1)
+        .style("stroke-dasharray", ("8,2"))
+        .style('stroke', "lightblue")
+}
+
+var y_grid_line_bottom_axis = 
+
+        svg.append('line')
+        .attr('x1', 1)
+        .attr('y1', 187)
+        .attr('x2', 1252)
+        .attr('y2', 187)
+        .style('stroke-width', 1)
+        .style('stroke', "black")
+        .style('opacity',1)
+
+
+// vertical created grid lines:
+
+var x_grid_lines = [
+    
+11,32,53,73,94,115,136,157,178,
+
+199,219,240,261,282,303,323,344,365,386,
+
+407,428,448,469,490,511,532,552,573,594,
+
+615,636,657,678,698,719,740,761,781,
+
+802, 823, 844, 865, 886, 906, 927,
+
+948,969,990,1011,1031,1052,1073,
+
+1094,1115,1136,1157,1177,1198,
+
+1219,1240
+
+]
+
+for (var j=0;j < x_grid_lines.length; j+=1) {
+        svg.append('line')
+        .attr('x1', x_grid_lines[j])
+        .attr('y1', 0.9)
+        .attr('x2', x_grid_lines[j])
+        .attr('y2', 186.5)
+        .style('stroke-width', 1)
+        .style("stroke-dasharray", ("8,2"))
+        .style('stroke', "lightblue")
+}
+
+var x_grid_line_right_axis = svg.append('line')
+        .attr('x1', 1251)
+        .attr('y1', 0.9)
+        .attr('x2', 1251)
+        .attr('y2', 186.5)
+        .style('stroke-width', 1)
+        .style('stroke', "black")
+
+var Highlight_Contextual_Area = svg.append('rect')
+  .attr('x', 0.1)
+  .attr('y', 0.1)
+  .attr('width', 398)
+  .attr('height', 190)
+  .style('fill', 'white')  
+  .style("opacity", 1)
+  .style('fill', '#12354d')
+  .style("opacity", 0)
+ 
+var Highlight_Inherent_Area = svg.append('rect')
+  .attr('x', 397)
+  .attr('y', 0.1)
+  .attr('width', 646)
+  .attr('height', 190)
+  .style('fill', 'white')  
+  .style('fill', '#26587f')
+  .style("opacity", 0)
+
+var Highlight_System_Area = svg.append('rect')
+  .attr('x', 1041)
+  .attr('y', 0.1)
+  .attr('width', 148)
+  .attr('height', 190)
+  .style('fill', 'white')  
+  .style('fill', '#1e86c8')
+  .style("opacity", 0)
+
+var Highlight_Undefined_Area = svg.append('rect')
+  .attr('x', 1188)
+  .attr('y', 0.1)
+  .attr('width', 64)
+  .attr('height', 190)
+  .style('fill', 'white')  
+  .style('fill', '#7aa8d7')
+  .style("opacity", 0)
+
+
 // Load the data
-d3.json("https://raw.githubusercontent.com/Kamal-Ahmed/DQ-Dimensions.github.io/main/data/data.json", function (error, graph) {
+d3.json("https://raw.githubusercontent.com/Kamal-Ahmed/DQ-Dimensions.github.io/main/data/Data_08_Sep_2025.json", function (error, graph) {
             
             if (error) {
                 return console.warn(error);
@@ -206,14 +376,23 @@ d3.json("https://raw.githubusercontent.com/Kamal-Ahmed/DQ-Dimensions.github.io/m
     
     // Capture which array entry for DQ Dimension is used:    
     let j = myVars.indexOf(d.variable)
-
+    
     // Capture which array entry for Data Concept is used:
     let k = myGroups.indexOf(d.group)
-
+        
     d3.select(this)
       .style("stroke", "red")
       .style("stroke-width", 2)
       .style("opacity", 1)
+
+    if (d.link_to_wiki === "-"){//No url assigned
+        
+        d3.select(this).style('cursor', 'default')
+ 
+    }
+
+    else {d3.select(this).style('cursor', 'pointer')}
+
       
       tooltip.transition().duration(200).style("opacity", .9)
                 
@@ -224,38 +403,116 @@ d3.json("https://raw.githubusercontent.com/Kamal-Ahmed/DQ-Dimensions.github.io/m
                     "<br/>" + "<br/>" +
                     "<strong>" + "Definition: " + "</strong>" + "<br/>"  +
                         d.definition +
-                    "<br/>" +"<br/>" +
+                    "<hr " + "class= " + "solid" + ">" +                    
                     "<strong>" + "Data Concept: " + "</strong>" + "<br/>" +
-                        d.group                              
+                        d.group +
+                    "<br/>" +"<br/>" +
+                    "<strong>" + "Definition: " + "</strong>" + "<br/>" +
+                        d.definition_group          
                     
                     )
-      
-                    .style("left", (d3.event.pageX - 9) + "px")
-                    .style("top", (d3.event.pageY - 80) + "px")
-                      
+                          
+                    .style('left', ((d3.event.pageX)) + 'px') // -9
+                    .style('top', ((d3.event.pageY)) + 'pix') // -80
+
+                    .style("left", (d3.select(this).attr("cx")) + "px")
+                    .style("top", (d3.select(this).attr("cy")) + "px");
                     
                     // Highlighting the DQ Dimension tick label:
                     d3.selectAll('g.tick').filter(function(d,i){
                        return d == myVars[j];})
                     
-                    .select('text')
-                    .style('stroke','red')
-                    .style("stroke-width", 0.4)
-                    
+                    .select('text').style("fill", "red")
+                                        
                     // Highlighting the Data Concept tick label:
                     d3.selectAll('g.tick').filter(function(d,i){
                        return d == myGroups[k];})
                     
-                    .select('text')
-                    .style('stroke','red')
-                    .style("stroke-width", 0.4)
-
+                    .select('text').style("fill", "red")
     }   
-  
+      
   var mousemove = function(d) {
     
-    tooltip.style('left', (d3.event.pageX+20) + 'px')
-    tooltip.style('top', (d3.event.pageY-70) + 'px')
+    mouse_X = d3.event.pageX
+    mouse_Y = d3.event.pageY
+
+    if (mouse_X > 1015)
+        {
+
+            //Correct the tooltip's x-position relative to node:
+
+            mouse_X = mouse_X - 375
+
+        }
+
+        else {
+
+            mouse_X = mouse_X + 15
+
+        }
+
+
+    if (mouse_Y > 330 && mouse_Y < 360)
+        {
+
+            //Correct the tooltip's y-position relative to node:
+
+            mouse_Y = (mouse_Y - 10)
+
+        }
+
+        
+    if (mouse_Y >= 360 && mouse_Y < 390)
+        {
+
+            //Correct the tooltip's y-position relative to node:
+
+            mouse_Y = (mouse_Y - 30)
+
+        }
+
+
+
+     if (mouse_Y >= 390 && mouse_Y < 420)
+        {
+
+            //Correct the tooltip's y-position relative to node:
+
+            mouse_Y = (mouse_Y - 70)
+
+        }
+        
+        if (mouse_Y >= 420 && mouse_Y < 450)
+        {
+
+            //Correct the tooltip's y-position relative to node:
+
+            mouse_Y = (mouse_Y - 90)
+
+        }
+
+        if (mouse_Y >= 450 && mouse_Y < 480)
+        {
+
+            //Correct the tooltip's y-position relative to node:
+
+            mouse_Y = (mouse_Y - 110)
+
+        }
+
+        if (mouse_Y >= 480 && mouse_Y < 520)
+        {
+
+            //Correct the tooltip's y-position relative to node:
+
+            mouse_Y = (mouse_Y - 150)
+
+        }
+
+
+    tooltip.style('left', (mouse_X) + 'px') //+20
+    tooltip.style('top', (mouse_Y) + 'px') //-70
+    
 
   }
   
@@ -265,68 +522,514 @@ d3.json("https://raw.githubusercontent.com/Kamal-Ahmed/DQ-Dimensions.github.io/m
     .style("stroke", "none")
     .style("opacity", 0.8)
     
-    tooltip.transition().duration(500).style("opacity", 0);
+    tooltip.transition().duration(1000).style("opacity", 0);
 
-    d3.selectAll('g.tick').select('text').style('stroke','black').style("stroke-width", 0)
-      
+    d3.selectAll('g.tick').select('text').style("fill", "black")
+          
   }
-
-
-      svg.selectAll()
-          .data(graph, function(d) {return d.group+':'+d.variable;})
+  
+  const datapoints = svg.selectAll("circle")
+          .data(graph, function(d) {return d.variable+':'+d.group;}) //{return d.group+':'+d.variable;}          
           .enter()
-          .append("rect")
-          .attr("x", function(d) { return x(d.group) })
-          .attr("y", function(d) { return y(d.variable) })
+          .append("circle")          
+          .attr("r",6)               
+          .attr("cx",1)
+          .attr("cy",1)          
+
+          //After applying enter(), use datapoints.style() here, so that the transition part can take effect: 
+          datapoints.style("opacity", 0)
+          .transition().duration(5000).delay(1000).ease(d3.easeCubicOut)
+          .attr("cx", function(d,i) { return x(d.variable)+10.5 }) //d.group       
+          .attr("cy", function(d,i) { return y(d.group)+12 }) //d.variable
+          
           .attr("width", x.bandwidth() )
           .attr("height", y.bandwidth() )
+                    
           .style("fill", function(d) { return myColor(d.value)} )
           .style("stroke-width", 4)
-          .style("stroke", "none")
+          .style("stroke", "none")                
           .style("opacity", 0.8)
-          .on("mouseover", mouseover)
+          
+          //Apply datapoints.on(), to activate any mouse events:                          
+          datapoints.on("mouseover", mouseover)
+          
           .on("mousemove", mousemove)
           .on("mouseout", mouseout)
-    
+          .on("click", function(d){
+
+            if (d.link_to_wiki != "-"){
+                    window.open(d.link_to_wiki,'_blank')
+            }
+                
+            });
+          
+//Applying filter() to datapoints, e.g. as part of implementing a search functionality:
+/*datapoints.filter(d => d.group === "Attribute")
+.style("fill", function(d) { return myColor(50)} )
+.attr("fill", "red")
+*/
+
 // Create legend
+var delta_pos_y = 8
 
-svg.append("rect")
-    .attr("x",175)
-    .attr("y",130)
-    .attr("width", "11px")
-    .attr("height", "11px")
-    .style("fill", myColor(75))
+var Layer_1_Contextual_Legend_Rect = svg.append("rect")
+    .attr("x",30)
+    .attr("y",218 + delta_pos_y)
+    .attr("width", "36px")
+    .attr("height", "18px")
+    .style("fill", "#12354d")
+    .style("opacity", 0)
+    
+var Layer_1_Inherent_Legend_Rect = svg.append("rect")
+    .attr("x",30)
+    .attr("y",240 + delta_pos_y)
+    .attr("width", "36px")
+    .attr("height", "18px")
+    .style("fill", "#26587f")
+    .style("opacity", 0)
 
-svg.append("rect")
-    .attr("x",175)
-    .attr("y",150)
-    .attr("width", "11px")
-    .attr("height", "11px")
-    .style("fill", myColor(200))
+var Layer_1_System_Legend_Rect = svg.append("rect")
+    .attr("x",30)
+    .attr("y",262 + delta_pos_y)
+    .attr("width", "36px")
+    .attr("height", "18px")
+    .style("fill", "#1e86c8")
+    .style("opacity", 0)
 
-svg.append("text")
-    .attr("x", 190)
-    .attr("y", 136)
-    .text("General")
+var Layer_1_Undefined_Legend_Rect = svg.append("rect")
+    .attr("x",30)
+    .attr("y",284 + delta_pos_y)
+    .attr("width", "36px")
+    .attr("height", "18px")
+    .style("fill", "#7aa8d7")
+    .style("opacity", 0)
+
+var Layer_1_Contextual_Legend_Text = svg.append("text")
+    .attr("x", 75)
+    .attr("y", 229 + delta_pos_y)
+    .text("Contextual domain")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")    
+    .attr("alignment-baseline","middle")
+    .style("opacity", 0)
+
+    var Layer_1_Inherent_Legend_Text = svg.append("text")
+    .attr("x", 75)
+    .attr("y", 251 + delta_pos_y)
+    .text("Inherent domain")
     .style("font-family", "Helvetica")
     .style("font-size", "12px")
     .attr("alignment-baseline","middle")
+    .style("opacity", 0)
 
-svg.append("text")
-    .attr("x", 190)
-    .attr("y", 157)
-    .text("Most common")
+var Layer_1_System_Legend_Text = svg.append("text")
+    .attr("x", 75)
+    .attr("y", 273 + delta_pos_y)
+    .text("System-Dependent domain")
     .style("font-family", "Helvetica")
     .style("font-size", "12px")
     .attr("alignment-baseline","middle")
-            
+    .style("opacity", 0)
+
+var Layer_1_Undefined_Legend_Text = svg.append("text")
+    .attr("x", 75)
+    .attr("y", 295 + delta_pos_y)
+    .text("Undefined domain")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .attr("alignment-baseline","middle")
+    .style("opacity", 0)
+
 var tooltip = d3.select("body")
                 .append("div")
                 .attr("class", "tooltip")
                 .style("opacity", 0);
 
+// Y axis label:
+var Y_axis_Title = svg.append("text")
+    .attr("text-anchor", "end")
+    .attr("transform", "rotate(-90)")
+    .attr("x", -50)
+    .attr("y", -100)    
+    .text("DATA CONCEPT")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .style("font-weight","bold")
+    .attr("alignment-baseline","middle")
+
+// Graph title:
+/*
+var Graph_Title = svg.append("text")    
+    .attr("text-anchor", "end")
+    .attr("x", 910)
+    .attr("y", -250)    
+    .text("DATA QUALITY DIMENSIONS: DEFINITIONS AND CATEGORISATIONS")
+    .style("font-family", "Helvetica")
+    .style("font-size", "16px")
+    .style("font-weight","bold")
+    .attr("alignment-baseline","middle")
+*/
+
+//Adding a DAMA logo:    
+var DAMA_logo = svg.append("svg:image")
+    .attr('x', 1000)
+    .attr('y', -186)
+    .attr('width', 60)
+    .attr('height', 60)
+    .attr("xlink:href", "logos/dama-logo.webp")
+    .on("click",function(){window.open("https://dama-nl.org/",'_blank')})
+    .style("cursor", "pointer")   
+
+//Adding a Creative Commons logo:
+var CC_logo = svg.append("svg:image")
+    .attr('x', 1150)
+    .attr('y', 175)
+    .attr('width', 60)
+    .attr('height', 60)
+    .attr("xlink:href", "https://i.creativecommons.org/l/by/4.0/88x31.png")
+    .on("click",function(){window.open("http://creativecommons.org/licenses/by/4.0/",'_blank')})
+    .style("cursor", "pointer")
+
+// Graph sub-title:    
+var Graph_Sub_Title = svg.append("text")    
+    .attr("text-anchor", "middle")
+    .attr("x", 640)
+    .attr("y", -220)    
+    .text("DATA QUALITY DIMENSIONS: DEFINITIONS AND CATEGORISATIONS")
+    .style("font-family", "Helvetica")
+    .style("font-size", "16px")
+    .style("font-weight","bold")
+    .attr("alignment-baseline","middle")
+    .style("fill","#1e86c8")
+
+// X axis top label:
+var X_axis_Top_Title = svg.append("text")
+   .attr("text-anchor", "end")
+   .attr("x", 460)
+   .attr("y", -150)    
+   .text("DATA QUALITY DIMENSION.")
+   .style("font-family", "Helvetica")
+   .style("font-size", "12px")
+   .style("font-weight","bold")
+   .attr("alignment-baseline","middle")
+
+var Ref_To_DAMA = svg.append("text")
+    .attr('x', 465)
+    .attr('y', -150)
+    .text("Source: Dictionary of dimensions of data quality (3DQ) — Research paper, DAMA NL (2020)")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .style("font-weight","bold")
+    .style("fill","grey")
+    .attr("alignment-baseline","middle")
+    //.attr("xlink:href", "logos/dama-logo.webp")
+    .on("click",function(){window.open("https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf",'_blank')})
+    .style("cursor", "pointer")
+
+//X axis bottom label:
+var X_axis_Bottom_Title = svg.append("text")
+    .attr("text-anchor", "end")
+    .attr("x", 370)
+    .attr("y", 290)
+    .text("CORE DATA QUALITY DIMENSION.")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .style("font-weight","bold")
+    .attr("alignment-baseline","middle")
+    .style("opacity", 0)
+
+//Adding clickable links to another resource/website/scientific paper:
+var Ref_To_ISO_Norm = svg.append("text")
+    .attr('x', 375)
+    .attr('y', 290)
+    .text("Sources: ISO/IEC 25012:2008")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .style("font-weight","bold")
+    .style("fill","grey")
+    .attr("alignment-baseline","middle")
+    //.attr("xlink:href", "logos/dama-logo.webp")
+    .on("click",function(){window.open("https://www.iso.org/standard/35736.html",'_blank')})
+    .style("cursor", "none")
+    .style("opacity", 0)
+
+//Adding clickable links to another resource/website/scientific paper:
+var Ref_To_DQ_Publication = svg.append("text")
+    .attr('x', 545)
+    .attr('y', 290)
+    .text("and A Framework for Current and New Data Quality Dimensions: An Overview — Research paper (2024)")
+    .style("font-family", "Helvetica")
+    .style("font-size", "12px")
+    .style("font-weight","bold")
+    .style("fill","grey")
+    .attr("alignment-baseline","middle")    
+    .on("click",function(){window.open("https://www.mdpi.com/2306-5729/9/12/151",'_blank')})
+    .style("cursor", "none")
+    .style("opacity", 0)
+
+
+// Change color on hover over tick labels for y-axis labels only:
+svg.selectAll(".y .tick") //.y .tick indicates that only the y-scale labels are affected by hovering
+            .on("mouseover", function(d,s) {
+                //d3.select(this).select("line").style("stroke", "red"); // Change tick line color
+                d3.select(this).select("text").style("fill", "red").style('cursor', 'pointer') // Change tick text color
+                
+                //https://stackoverflow.com/questions/39964570/how-to-filter-data-with-d3-js
+                const filteredData = graph.filter(e => e.group === d)
+                
+                svg.selectAll("circle").data(graph, function(d) {return d.variable+':'+d.group;})
+                
+                    .filter(e => e.group === d)
+                    .style("stroke", "red")
+                    .style("stroke-width", 2)
+
+                for (var prop in filteredData) {
+                    if (filteredData.hasOwnProperty(prop)) {
+                        // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
+                        //console.log("prop: " + prop + " value: " + filteredData[prop].variable)
+                        svg.selectAll(".x .tick").select("text").filter(d => d === filteredData[prop].variable).style("fill", "red")
+                    }
+                }
+
+            })
+
+            .on("mouseout", function(d,s) {
+                
+                d3.select(this).select("text").style("fill", "black"); // Reset tick text color
+                svg.selectAll("circle").style("stroke", "none")
+                svg.selectAll(".x .tick").select("text").style("fill", "black")
+              
+            })
+
+//Change color on hover over tick labels for x-axis labels only:
+
+svg.selectAll(".x .tick") //.y .tick indicates that only the y-scale labels are affected by hovering
+            .on("mouseover", function(d,s) {
+                
+                d3.select(this).select("text").style("fill", "red").style('cursor', 'pointer') // Change tick text color
+                //https://stackoverflow.com/questions/39964570/how-to-filter-data-with-d3-js
+                const filteredData = graph.filter(e => e.variable === d)
+                
+                svg.selectAll("circle").data(graph, function(d) {return d.variable+':'+d.group;})  
+                    .filter(e => e.variable === d)
+                    .style("stroke", "red")
+                    .style("stroke-width", 2)
+
+                for (var prop in filteredData) {
+                    if (filteredData.hasOwnProperty(prop)) {
+                        // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
+                        //console.log("prop: " + prop + " value: " + filteredData[prop].variable)
+                        svg.selectAll(".y .tick").select("text").filter(d => d === filteredData[prop].group).style("fill", "red")
+                    }
+                }
+
+            })
+
+            .on("mouseout", function(d,s) {
+                d3.select(this).select("text").style("fill", "black"); // Reset tick text color
+                svg.selectAll("circle").style("stroke", "none")
+                svg.selectAll(".y .tick").select("text").style("fill", "black")              
+            })
+
+
+//-----------------------------------------------------------------
+
+/*
+svg.selectAll(".x .tick")
+    .each(function(d) {
+        const tick = d3.select(this);
+        const bbox = tick.node().getBBox();
+
+const angle = Math.atan2(bbox.height, bbox.width); // Rotation angle in degrees
+//const centerX = 50 + width / 2; // Center x of the rectangle
+//const centerY = 50 + height / 2; // Center y of the rectangle
+
+        tick.insert("rect", ":first-child")
+            .attr("x", bbox.x -2)
+            .attr("y", bbox.y -5)
+            .attr("width", 8) //bbox.width-20
+            .attr("height", bbox.height+25)
+            .attr("fill", "lightblue")
+            .attr("rx", 5)
+            .attr("ry", 5)
+            //.attr("transform","translate(0,-10)")
+            .attr("transform","rotate(30)")            
+            //rect.attr("transform", `rotate(${angle}, ${centerX}, ${centerY})`);
+            //rect.attr("transform","rotate(" + (angle * (180 / Math.PI)) + ")")
+    });
+*/
+
+d3.selectAll("input[type='checkbox']")
+  .on("change", function() {
+    // This function will be called whenever a checkbox is checked or unchecked
+    var checkboxId = this.id; // Get the ID of the checkbox
+    var isChecked = this.checked; // Get the checked state
+    // Log the state
+    //console.log(checkboxId + " is " + (isChecked ? "checked" : "unchecked"));
+    //console.log(checkboxId, isChecked)
+
+    if (checkboxId == "chk_box1"  && isChecked == true){
+
+        //console.log("Yes!")
+        
+        Layer_1_Contextual_Legend_Rect.transition().duration(1000).style("opacity", 1)
+        Layer_1_Contextual_Legend_Text.transition().duration(1000).style("opacity", 1)
+
+        Highlight_Contextual_Area.transition().duration(1000).style("opacity", 1)
+
+        Layer_1_Inherent_Legend_Rect.transition().duration(1000).style("opacity", 1)
+        Layer_1_Inherent_Legend_Text.transition().duration(1000).style("opacity", 1)
+
+        Highlight_Inherent_Area.transition().duration(1000).style("opacity", 1)
+
+        Layer_1_System_Legend_Rect.transition().duration(1000).style("opacity", 1)
+        Layer_1_System_Legend_Text.transition().duration(1000).style("opacity", 1)
+
+        Highlight_System_Area.transition().duration(1000).style("opacity", 1)
+
+        Layer_1_Undefined_Legend_Rect.transition().duration(1000).style("opacity", 1)
+        Layer_1_Undefined_Legend_Text.transition().duration(1000).style("opacity", 1)
+
+        Highlight_Undefined_Area.transition().duration(1000).style("opacity", 1)
+
+
+    }    
+    
+    if (checkboxId == "chk_box1"  && isChecked == false){
+
+        Layer_1_Contextual_Legend_Rect.transition().duration(1000).style("opacity", 0)
+        Layer_1_Contextual_Legend_Text.transition().duration(1000).style("opacity", 0)
+
+        Highlight_Contextual_Area.transition().duration(1000).style("opacity", 0)
+
+        Layer_1_Inherent_Legend_Rect.transition().duration(1000).style("opacity", 0)
+        Layer_1_Inherent_Legend_Text.transition().duration(1000).style("opacity", 0)
+
+        Highlight_Inherent_Area.transition().duration(1000).style("opacity", 0)
+
+        Layer_1_System_Legend_Rect.transition().duration(1000).style("opacity", 0)
+        Layer_1_System_Legend_Text.transition().duration(1000).style("opacity", 0)
+
+        Highlight_System_Area.transition().duration(1000).style("opacity", 0)
+
+        Layer_1_Undefined_Legend_Rect.transition().duration(1000).style("opacity", 0)
+        Layer_1_Undefined_Legend_Text.transition().duration(1000).style("opacity", 0)
+
+        Highlight_Undefined_Area.transition().duration(1000).style("opacity", 0)
+
+    }
+
+
+if (checkboxId == "chk_box2"  && isChecked == true){//show bottom axis
+
+    X_axis_Bottom_Title.transition().delay(2000).duration(2000).style("opacity", 1)
+
+    Ref_To_ISO_Norm.transition().delay(2000).duration(2000).style("opacity", 1).style("cursor", "pointer")
+
+    Ref_To_DQ_Publication.transition().delay(2000).duration(2000).style("opacity", 1).style("cursor", "pointer")
+    
+    for (var k=0;k < ISO_Layer_Two.length; k+=1) {
+    svg.append("text")
+    .attr("class", "btm_axis")         
+    .attr("x", x_grid_lines[k])
+    .attr("y", 200)
+    .attr("text-anchor", "left")
+    .text(ISO_Layer_Two[k])
+    .style("font-family", "Helvetica")
+    .style("font-size", "10px")    
+    .attr("transform","rotate("+ 60 + "," + x_grid_lines[k] + "," + 200 + ")")
+    .style("opacity", 0)
+    .transition().delay(1800).duration(2000).ease(d3.easeLinear).style("opacity", 1) //easeCubicOut easeLinear
+    .style("fill",function()
+    {
+        if (k<=18) {
+            return "#12354d";
+        }
+        else if ((k>18) & (k<=49)) {return "#26587f";}
+
+        else if ((k>49) & (k<=56)) {return "#1e86c8";}
+        
+        else {return "#7aa8d7"}
+
+    }
+        
+    )
+    
+}
+
+
+d3.select(".chkbox_frame_1").transition().delay(1000).duration(2000).style("position", "absolute").style("left","130px").style("top","630px")
+d3.select(".chkbox_frame_2").transition().delay(1000).duration(2000).style("position", "absolute").style("left","450px").style("top","630px")
+
+d3.select(".dot1").transition().delay(1000).duration(2000).style("position", "absolute").style("left","850px").style("top","636px")
+d3.select(".dot2").transition().delay(1000).duration(2000).style("position", "absolute").style("left","850px").style("top","654px")
+
+Layer_1_Contextual_Legend_Rect.transition().duration(2000).delay(1000).attr("transform", "translate(0,103)")
+Layer_1_Inherent_Legend_Rect.transition().duration(2000).delay(1000).attr("transform", "translate(0,104)")
+Layer_1_System_Legend_Rect.transition().duration(2000).delay(1000).attr("transform", "translate(0,105)")
+Layer_1_Undefined_Legend_Rect.transition().duration(2000).delay(1000).attr("transform", "translate(0,106)")
+Layer_1_Contextual_Legend_Text.transition().duration(2000).delay(1000).attr("transform", "translate(1,103)")
+Layer_1_Inherent_Legend_Text.transition().duration(2000).delay(1000).attr("transform", "translate(1,104)")
+Layer_1_System_Legend_Text.transition().duration(2000).delay(1000).attr("transform", "translate(1,105)")
+Layer_1_Undefined_Legend_Text.transition().duration(2000).delay(1000).attr("transform", "translate(1,106)")
+
+CC_logo.transition().duration(2000).delay(1000).attr("transform", "translate(0,120)")
+
+
+}
+
+if (checkboxId == "chk_box2"  && isChecked == false){//remove lower x-axis
+
+
+d3.select(".chkbox_frame_1").transition().delay(1000).duration(2000).style("position", "absolute").style("left","130px").style("top","525px")
+d3.select(".chkbox_frame_2").transition().delay(1000).duration(2000).style("position", "absolute").style("left","450px").style("top","525px")
+
+d3.select(".dot1").transition().delay(1000).duration(2000).style("position", "absolute").style("left","850px").style("top","530px")
+d3.select(".dot2").transition().delay(1000).duration(2000).style("position", "absolute").style("left","850px").style("top","548px")
+
+X_axis_Bottom_Title.transition().duration(2000).style("opacity", 0)
+
+Ref_To_ISO_Norm.transition().duration(2000).style("opacity", 0).style("cursor", "none")
+Ref_To_DQ_Publication.transition().duration(2000).style("opacity", 0).style("cursor", "none")
+
+Layer_1_Contextual_Legend_Rect.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(0,-4)")
+Layer_1_Inherent_Legend_Rect.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(0,-2)")
+Layer_1_System_Legend_Rect.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(0,0)")
+Layer_1_Undefined_Legend_Rect.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(0,2)")
+
+Layer_1_Contextual_Legend_Text.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(1,-4)")
+Layer_1_Inherent_Legend_Text.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(1,-2)")
+Layer_1_System_Legend_Text.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(1,0)")
+Layer_1_Undefined_Legend_Text.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(1,2)")
+
+CC_logo.transition().duration(2000).delay(1000).attr("transform", "translate(0,-1)")
+
+svg.selectAll(".btm_axis").transition().duration(2000).style("opacity", 0).remove();
+    
+}
+
+});
+
 });
 
 </script>
+
+        <div class="dot1">
+            <div class="t1">Most frequently used dimension</div>
+        </div>
+        <div class="dot2">
+            <div class="t2">Less frequently used dimension</div>
+        </div>
+
+<div class="chkbox_frame_1">
+            <input type="checkbox" id="chk_box1" name="chk_box1">
+            <label for="chk_box1"> Display ISO 25012 - Categorisation by Domain </label>        
+</div>
+
+<div class="chkbox_frame_2">            
+            <!--<input type="checkbox" id="chk_box2" name="chk_box2" disabled="disabled">-->
+            <input type="checkbox" id="chk_box2" name="chk_box2">
+            <label for="chk_box2"> Display ISO 25012 - Categorisation by Core DQ dimension </label>        
+</div>
 
 </html>
