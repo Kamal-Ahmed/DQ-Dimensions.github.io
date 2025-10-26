@@ -13,12 +13,12 @@ The number of Data Quality Dimensions used by organisations may vary by organisa
 ### Image of interactive tool
 
 <p align="center">
-  <img src="DAMA_NL_Interactive_Viz_26102025_001.png" width="500">  
+  <img src="DAMA_NL_Interactive_Viz_26102025_001.png" width="1400" height="400">  
 </p>
 
 ### Mapping of data quality dimensions to ISO/IEC 25012:2008 categories
 
 <p align="center">
-  <img src="DAMA_NL_Interactive_Viz_26102025_002.png" width="500">
+  <img src="DAMA_NL_Interactive_Viz_26102025_002.png" width="700">
 </p>
 
