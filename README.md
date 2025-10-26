@@ -16,17 +16,22 @@ Hovering the mouse over a coloured cell in the grid shows:
 - the associated Data Concept, and
 - the Definition of the Data Concept.
 
-Clicking on a coloured cell navigates users to a collection of Wiki pages on Data Management, providing additional information for that particular Data Quality Dimension, such as: synonyms, relations, and examples of their usage.
+Clicking on a coloured cell navigates users to a collection of Wiki pages on Data Management [2], providing additional information for that particular Data Quality Dimension, such as: synonyms, relations, and examples of their usage.
 
 ### Mapping of data quality dimensions to ISO/IEC 25012:2008 categories
 
-In 2025 we studied several publications related to categorising the list of 60 data quality dimensions. The publication on "A Framework for Current and New Data Quality Dimensions: An Overview" [2] refers to a data quality model in ISO/IEC 25012:2008 [3]. The 262 data quality dimensions found in [2] can be categorised along three "Domain layers": Contextual, Intrinsic and System dependent. Each of these domain layers can be further categorised into "Core data quality dimensions". Subsequently, all data quality dimensions found in [2] can be related to these "Core data quality dimensions". In the visualization shown below we have focused on depicting the three "Domain layers" and the "Core data quality dimensions". 
+In 2025 we studied several publications related to categorising the list of 60 data quality dimensions. The publication on "A Framework for Current and New Data Quality Dimensions: An Overview" [3] refers to a data quality model in ISO/IEC 25012:2008 [4]. The 262 data quality dimensions found in [3] can be categorised along three "Domain layers": Contextual, Intrinsic and System dependent. Each of these domain layers can be further categorised into "Core data quality dimensions". Subsequently, all data quality dimensions found in [3] can be related to these "Core data quality dimensions". In the visualization shown below we have focused on depicting the three "Domain layers" and the "Core data quality dimensions". 
 
 <p align="center">
   <img src="DAMA_NL_Interactive_Viz_26102025_002.png" width="1400" height="500">
 </p>
 
 ### References
+
 [1] P. van Nederpelt, A. Black, [Dictionary of dimensions of data quality (3DQ), DAMA NL Research paper (2020)](https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf).
-[2] Miller, R., Whelan, H., Chrubasik, M., Whittaker, D., Duncan, P., & Gregório, J. (2024). [A Framework for Current and New Data Quality Dimensions: An Overview. Data](https://doi.org/10.3390/data9120151), 9(12), 151.
-[3] ISO/IEC 25012:2008, [Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model](https://www.iso.org/standard/35736.html).
+
+[2] [Data Management Wiki](https://datamanagement.wiki/start)
+
+[3] Miller, R., Whelan, H., Chrubasik, M., Whittaker, D., Duncan, P., & Gregório, J. (2024). [A Framework for Current and New Data Quality Dimensions: An Overview. Data](https://doi.org/10.3390/data9120151), 9(12), 151.
+
+[4] ISO/IEC 25012:2008, [Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model](https://www.iso.org/standard/35736.html).
