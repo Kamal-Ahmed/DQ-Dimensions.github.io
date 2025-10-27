@@ -670,9 +670,9 @@ var Graph_Title = svg.append("text")
     .attr("alignment-baseline","middle")
 */
 
-//Adding a DAMA logo:    
+//Adding a DAMA logo:
 var DAMA_logo = svg.append("svg:image")
-    .attr('x', 1000)
+    .attr('x', 975)
     .attr('y', -186)
     .attr('width', 60)
     .attr('height', 60)
@@ -690,10 +690,23 @@ var CC_logo = svg.append("svg:image")
     .on("click",function(){window.open("http://creativecommons.org/licenses/by/4.0/",'_blank')})
     .style("cursor", "pointer")
 
+//Adding an Info logo:
+var INFO_logo = svg.append("svg:image")
+    .attr('x', 886)
+    .attr('y', -235)    
+    .attr('width', 12)
+    .attr('height', 12)    
+    .attr("xlink:href", "logos/information-icon.jpg")    
+    .on("click",function(){window.open("https://github.com/Kamal-Ahmed/DQ-Dimensions.github.io/blob/main/README.md",'_blank')})
+    .style("cursor", "pointer")
+    .append("title")
+    .text("Click on link to see the Readme section on the Github repository")
+
+
 // Graph sub-title:    
 var Graph_Sub_Title = svg.append("text")    
     .attr("text-anchor", "middle")
-    .attr("x", 640)
+    .attr("x", 620)
     .attr("y", -220)    
     .text("DATA QUALITY DIMENSIONS: DEFINITIONS AND CATEGORISATIONS")
     .style("font-family", "Helvetica")
@@ -705,7 +718,7 @@ var Graph_Sub_Title = svg.append("text")
 // X axis top label:
 var X_axis_Top_Title = svg.append("text")
    .attr("text-anchor", "end")
-   .attr("x", 460)
+   .attr("x", 440)
    .attr("y", -150)    
    .text("DATA QUALITY DIMENSION.")
    .style("font-family", "Helvetica")
@@ -714,7 +727,7 @@ var X_axis_Top_Title = svg.append("text")
    .attr("alignment-baseline","middle")
 
 var Ref_To_DAMA = svg.append("text")
-    .attr('x', 465)
+    .attr('x', 445)
     .attr('y', -150)
     .text("Source: Dictionary of dimensions of data quality (3DQ) — Research paper, DAMA NL (2020)")
     .style("font-family", "Helvetica")
@@ -729,7 +742,7 @@ var Ref_To_DAMA = svg.append("text")
 //X axis bottom label:
 var X_axis_Bottom_Title = svg.append("text")
     .attr("text-anchor", "end")
-    .attr("x", 370)
+    .attr("x", 340)
     .attr("y", 290)
     .text("CORE DATA QUALITY DIMENSION.")
     .style("font-family", "Helvetica")
@@ -740,22 +753,21 @@ var X_axis_Bottom_Title = svg.append("text")
 
 //Adding clickable links to another resource/website/scientific paper:
 var Ref_To_ISO_Norm = svg.append("text")
-    .attr('x', 375)
+    .attr('x', 345)
     .attr('y', 290)
     .text("Sources: ISO/IEC 25012:2008")
     .style("font-family", "Helvetica")
     .style("font-size", "12px")
     .style("font-weight","bold")
     .style("fill","grey")
-    .attr("alignment-baseline","middle")
-    //.attr("xlink:href", "logos/dama-logo.webp")
-    .on("click",function(){window.open("https://www.iso.org/standard/35736.html",'_blank')})
-    .style("cursor", "none")
+    .attr("alignment-baseline","middle")    
+    //.on("click",function(){window.open("https://www.iso.org/standard/35736.html",'_blank')})
+    //.style("cursor", "none")
     .style("opacity", 0)
 
 //Adding clickable links to another resource/website/scientific paper:
 var Ref_To_DQ_Publication = svg.append("text")
-    .attr('x', 545)
+    .attr('x', 515)
     .attr('y', 290)
     .text("and A Framework for Current and New Data Quality Dimensions: An Overview — Research paper (2024)")
     .style("font-family", "Helvetica")
@@ -763,8 +775,8 @@ var Ref_To_DQ_Publication = svg.append("text")
     .style("font-weight","bold")
     .style("fill","grey")
     .attr("alignment-baseline","middle")    
-    .on("click",function(){window.open("https://www.mdpi.com/2306-5729/9/12/151",'_blank')})
-    .style("cursor", "none")
+    //.on("click",function(){window.open("https://www.mdpi.com/2306-5729/9/12/151",'_blank')})
+    //.style("cursor", "none")
     .style("opacity", 0)
 
 
@@ -922,11 +934,7 @@ d3.selectAll("input[type='checkbox']")
 
 if (checkboxId == "chk_box2"  && isChecked == true){//show bottom axis
 
-    X_axis_Bottom_Title.transition().delay(2000).duration(2000).style("opacity", 1)
-
-    Ref_To_ISO_Norm.transition().delay(2000).duration(2000).style("opacity", 1).style("cursor", "pointer")
-
-    Ref_To_DQ_Publication.transition().delay(2000).duration(2000).style("opacity", 1).style("cursor", "pointer")
+    X_axis_Bottom_Title.transition().delay(1000).duration(2000).style("opacity", 1)
     
     for (var k=0;k < ISO_Layer_Two.length; k+=1) {
     svg.append("text")
@@ -975,11 +983,17 @@ Layer_1_Undefined_Legend_Text.transition().duration(2000).delay(1000).attr("tran
 
 CC_logo.transition().duration(2000).delay(1000).attr("transform", "translate(0,120)")
 
+//Upon showing reference, enable click event for hyperlink:
+Ref_To_ISO_Norm.on("click",function(){window.open("https://www.iso.org/standard/35736.html",'_blank')})
+.transition().duration(2000).delay(1000).style("cursor", "pointer").style("opacity", 1)
+
+//Upon showing reference, enable click event for hyperlink:
+Ref_To_DQ_Publication.on("click",function(){window.open("https://www.mdpi.com/2306-5729/9/12/151",'_blank')})
+.transition().duration(2000).delay(1000).style("cursor", "pointer").style("opacity", 1)
 
 }
 
 if (checkboxId == "chk_box2"  && isChecked == false){//remove lower x-axis
-
 
 d3.select(".chkbox_frame_1").transition().delay(1000).duration(2000).style("position", "absolute").style("left","130px").style("top","525px")
 d3.select(".chkbox_frame_2").transition().delay(1000).duration(2000).style("position", "absolute").style("left","450px").style("top","525px")
@@ -989,8 +1003,11 @@ d3.select(".dot2").transition().delay(1000).duration(2000).style("position", "ab
 
 X_axis_Bottom_Title.transition().duration(2000).style("opacity", 0)
 
-Ref_To_ISO_Norm.transition().duration(2000).style("opacity", 0).style("cursor", "none")
-Ref_To_DQ_Publication.transition().duration(2000).style("opacity", 0).style("cursor", "none")
+//Upon hiding reference, disable click event for hyperlink:
+Ref_To_ISO_Norm.on("click",null).transition().duration(2000).style("opacity", 0).style("cursor", "none")
+
+//Upon hiding reference, disable click event for hyperlink:
+Ref_To_DQ_Publication.on("click",null).transition().duration(2000).style("opacity", 0).style("cursor", "none")
 
 Layer_1_Contextual_Legend_Rect.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(0,-4)")
 Layer_1_Inherent_Legend_Rect.transition().delay(2000).duration(2000).delay(1000).attr("transform", "translate(0,-2)")
