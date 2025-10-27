@@ -1,6 +1,6 @@
-# Data Quality Dimensions, Definitions and Data Concepts
+## Data Quality Dimensions, Definitions and Data Concepts
 
-## Background
+### Background
 
 In 2020, the Data Quality working group of the Data Management Association in the Netherlands (DAMA NL), carried out an extensive research into definitions of dimensions of data quality. It collected definitions from various sources and compared these with each other [1]. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704:2009<sup>*)</sup>.
 
@@ -29,8 +29,6 @@ In 2025 we studied several publications related to categorising the list of 60 d
 <p align="center">
   <img src="DAMA_NL_Interactive_Viz_26102025_002.png" width="1400" height="500">
 </p>
-
-Version: October 2025
 
 ### References
 
