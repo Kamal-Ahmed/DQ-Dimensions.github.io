@@ -28,10 +28,10 @@ In 2025 we studied several publications related to categorising the list of 60 d
 
 ### References
 
-- [1] P. van Nederpelt, A. Black, [Dictionary of dimensions of data quality (3DQ), DAMA NL Research paper (2020)](https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf).
+<p>[1] P. van Nederpelt, A. Black, [Dictionary of dimensions of data quality (3DQ), DAMA NL Research paper (2020)](https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf).</p>
 
-- [2] [Data Management Wiki](https://datamanagement.wiki/start)
+<p>[2] [Data Management Wiki, DAMA NL](https://datamanagement.wiki/start)</p>
 
-- [3] Miller, R., Whelan, H., Chrubasik, M., Whittaker, D., Duncan, P., & Gregório, J. (2024). [A Framework for Current and New Data Quality Dimensions: An Overview.](https://doi.org/10.3390/data9120151), Data, 9(12), 151.
+<p>[3] Miller, R., Whelan, H., Chrubasik, M., Whittaker, D., Duncan, P., & Gregório, J. (2024). [A Framework for Current and New Data Quality Dimensions: An Overview.](https://doi.org/10.3390/data9120151), Data, 9(12), 151.</p>
 
-- [4] ISO/IEC 25012:2008, [Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model](https://www.iso.org/standard/35736.html).
+<p>[4] ISO/IEC 25012:2008, [Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model](https://www.iso.org/standard/35736.html).</p>
