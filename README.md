@@ -1,6 +1,6 @@
 ## Data Quality Dimensions, Definitions and Data Concepts
 
-In 2020, the Data Quality working group of the Data Management Association in the Netherlands (DAMA NL), carried out an extensive research into definitions of dimensions of data quality. It collected definitions from various sources and compared these with each other [1]. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704:2009.
+In 2020, the Data Quality working group of the Data Management Association in the Netherlands (DAMA NL), carried out an extensive research into definitions of dimensions of data quality. It collected definitions from various sources and compared these with each other [1]. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704:2009<sup>*</sup>.
 
 In the data ecosystem, all dimensions were linked to a 'data concept' such as a data file, an attribute, a record or a data value. This simplified distinguishing between, for example, the completeness of records and the completeness of data values. These data concepts were also provided with standardized definitions. This research led to a list of 60 dimensions of data quality and 20 data concepts with standardized definitions.
 
@@ -28,10 +28,10 @@ In 2025 we studied several publications related to categorising the list of 60 d
 
 ### References
 
-<p>[1] P. van Nederpelt, A. Black, [Dictionary of dimensions of data quality (3DQ), DAMA NL Research paper (2020)](https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf).</p>
+[1] P. van Nederpelt, A. Black, [Dictionary of dimensions of data quality (3DQ), DAMA NL Research paper (2020)](https://www.dama-nl.org/wp-content/uploads/2020/11/3DQ-Dictionary-of-Dimensions-of-Data-Quality-version-1.2-d.d.-14-Nov-2020.pdf).
 
-<p>[2] [Data Management Wiki, DAMA NL](https://datamanagement.wiki/start)</p>
+[2] [Data Management Wiki, DAMA NL](https://datamanagement.wiki/start)
 
-<p>[3] Miller, R., Whelan, H., Chrubasik, M., Whittaker, D., Duncan, P., & Gregório, J. (2024). [A Framework for Current and New Data Quality Dimensions: An Overview.](https://doi.org/10.3390/data9120151), Data, 9(12), 151.</p>
+[3] Miller, R., Whelan, H., Chrubasik, M., Whittaker, D., Duncan, P., & Gregório, J. (2024). [A Framework for Current and New Data Quality Dimensions: An Overview.](https://doi.org/10.3390/data9120151), Data, 9(12), 151.
 
-<p>[4] ISO/IEC 25012:2008, [Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model](https://www.iso.org/standard/35736.html).</p>
+[4] ISO/IEC 25012:2008, [Software engineering — Software product Quality Requirements and Evaluation (SQuaRE) — Data quality model](https://www.iso.org/standard/35736.html).
