@@ -1,6 +1,8 @@
-## Data Quality Dimensions, Definitions and Data Concepts
+# Data Quality Dimensions, Definitions and Data Concepts
 
-In 2020, the Data Quality working group of the Data Management Association in the Netherlands (DAMA NL), carried out an extensive research into definitions of dimensions of data quality. It collected definitions from various sources and compared these with each other [1]. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704:2009<sup>*</sup>.
+## Background
+
+In 2020, the Data Quality working group of the Data Management Association in the Netherlands (DAMA NL), carried out an extensive research into definitions of dimensions of data quality. It collected definitions from various sources and compared these with each other [1]. The working group also evaluated the definitions against criteria derived from a standard for concepts and definitions: ISO 704:2009<sup>*)</sup>.
 
 In the data ecosystem, all dimensions were linked to a 'data concept' such as a data file, an attribute, a record or a data value. This simplified distinguishing between, for example, the completeness of records and the completeness of data values. These data concepts were also provided with standardized definitions. This research led to a list of 60 dimensions of data quality and 20 data concepts with standardized definitions.
 
@@ -18,6 +20,8 @@ Hovering the mouse over a coloured cell in the grid shows:
 
 Clicking on a coloured cell navigates users to a collection of Wiki pages on Data Management [2], providing additional information for that particular Data Quality Dimension, such as: synonyms, relations, and examples of their usage.
 
+<sup>*)</sup> In 2022 ISO 704:2009 on "Terminology work — Principles and methods" was withdrawn and replaced by ISO 704:2022.
+
 ### Mapping of data quality dimensions to ISO/IEC 25012:2008 categories
 
 In 2025 we studied several publications related to categorising the list of 60 data quality dimensions. The publication on "A Framework for Current and New Data Quality Dimensions: An Overview" [3] refers to a data quality model in ISO/IEC 25012:2008 [4]. The 262 data quality dimensions found in [3] can be categorised along three "Domain layers": Contextual, Intrinsic and System dependent. Each of these domain layers can be further categorised into "Core data quality dimensions". Subsequently, all data quality dimensions found in [3] can be related to these "Core data quality dimensions". In the visualization shown below we have focused on depicting the three "Domain layers" and the "Core data quality dimensions". 
@@ -25,6 +29,8 @@ In 2025 we studied several publications related to categorising the list of 60 d
 <p align="center">
   <img src="DAMA_NL_Interactive_Viz_26102025_002.png" width="1400" height="500">
 </p>
+
+Version: October 2025
 
 ### References
 
