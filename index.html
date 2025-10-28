@@ -934,7 +934,7 @@ d3.selectAll("input[type='checkbox']")
 
 if (checkboxId == "chk_box2"  && isChecked == true){//show bottom axis
 
-    X_axis_Bottom_Title.transition().delay(1000).duration(2000).style("opacity", 1)
+    X_axis_Bottom_Title.transition().delay(2000).duration(2000).style("opacity", 1)
     
     for (var k=0;k < ISO_Layer_Two.length; k+=1) {
     svg.append("text")
@@ -985,11 +985,11 @@ CC_logo.transition().duration(2000).delay(1000).attr("transform", "translate(0,1
 
 //Upon showing reference, enable click event for hyperlink:
 Ref_To_ISO_Norm.on("click",function(){window.open("https://www.iso.org/standard/35736.html",'_blank')})
-.transition().duration(2000).delay(1000).style("cursor", "pointer").style("opacity", 1)
+.transition().duration(2000).delay(2000).style("cursor", "pointer").style("opacity", 1)
 
 //Upon showing reference, enable click event for hyperlink:
 Ref_To_DQ_Publication.on("click",function(){window.open("https://www.mdpi.com/2306-5729/9/12/151",'_blank')})
-.transition().duration(2000).delay(1000).style("cursor", "pointer").style("opacity", 1)
+.transition().duration(2000).delay(2000).style("cursor", "pointer").style("opacity", 1)
 
 }
 
@@ -1048,5 +1048,6 @@ svg.selectAll(".btm_axis").transition().duration(2000).style("opacity", 0).remov
             <input type="checkbox" id="chk_box2" name="chk_box2">
             <label for="chk_box2"> Display ISO 25012 - Categorisation by Core DQ dimension </label>        
 </div>
+
 
 </html>
